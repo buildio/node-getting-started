@@ -1,0 +1,19 @@
+{
+  "name": "build-node-getting-started",
+  "version": "1.0.0",
+  "description": "A sample Node.js app for deploying to Build (build.io)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=22.x"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  },
+  "license": "MIT"
+}
