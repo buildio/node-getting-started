@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const os = require('os');
 const path = require('path');
 
 const app = express();
@@ -26,7 +27,7 @@ app.get('/', (req, res) => {
       nodeEnv: process.env.NODE_ENV || 'development',
       nodeVersion: process.version,
       port: PORT,
-      dyno: process.env.DYNO || 'local',
+      instance: os.hostname(),
     },
   });
 });
