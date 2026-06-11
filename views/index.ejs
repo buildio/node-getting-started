@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started with Node.js on Build</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div class="badge">⬢ Running on Build</div>
+      <h1><%= greeting %></h1>
+      <p class="subtitle">
+        This is a sample Node.js + Express app deployed on
+        <strong>Build</strong>. Clone it, change it, and redeploy —
+        it's your playground.
+      </p>
+    </header>
+
+    <section class="card">
+      <h2>Runtime info</h2>
+      <table>
+        <tr><th>Environment</th><td><%= env.nodeEnv %></td></tr>
+        <tr><th>Node version</th><td><%= env.nodeVersion %></td></tr>
+        <tr><th>Listening on port</th><td><%= env.port %></td></tr>
+        <tr><th>Dyno</th><td><%= env.dyno %></td></tr>
+      </table>
+      <p class="hint">
+        The port comes from the <code>PORT</code> environment variable that
+        Build injects at runtime.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Live config vars</h2>
+      <p>
+        The greeting above is read from the <code>GREETING</code> config var.
+        Change it without redeploying:
+      </p>
+      <pre><code>bld config:set GREETING="こんにちは, Build!" -a &lt;your-app&gt;</code></pre>
+      <p>Then refresh this page, or hit the API:</p>
+      <pre><code>curl https://&lt;your-app&gt;.build.io/api/greeting</code></pre>
+      <p class="hint" id="api-result">Fetching <code>/api/status</code>…</p>
+    </section>
+
+    <section class="card">
+      <h2>Make it yours</h2>
+      <ol>
+        <li>Open <code>server.js</code> and uncomment the sample route at the bottom.</li>
+        <li>Edit this page in <code>views/index.ejs</code>.</li>
+        <li>Commit, push to GitHub, and watch Build redeploy automatically.</li>
+      </ol>
+    </section>
+
+    <footer>
+      <a href="https://build.io">build.io</a> ·
+      <a href="/api/status">/api/status</a> ·
+      <a href="/api/greeting">/api/greeting</a>
+    </footer>
+  </main>
+
+  <script>
+    fetch('/api/status')
+      .then(r => r.json())
+      .then(d => {
+        document.getElementById('api-result').textContent =
+          `Live from /api/status — status: ${d.status}, uptime: ${d.uptimeSeconds}s, node: ${d.node}`;
+      })
+      .catch(() => {
+        document.getElementById('api-result').textContent =
+          'Could not reach /api/status';
+      });
+  </script>
+</body>
+</html>
