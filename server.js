@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 const express = require('express');
-const os = require('os');
 const path = require('path');
 
 const app = express();
@@ -24,10 +23,10 @@ app.get('/', (req, res) => {
   res.render('index', {
     greeting: process.env.GREETING || 'Hello from Build!',
     env: {
-      nodeEnv: process.env.NODE_ENV || 'development',
+      deployedAt: startedAt.toISOString(),
       nodeVersion: process.version,
       port: PORT,
-      instance: os.hostname(),
+      uptime: Math.floor(process.uptime()),
     },
   });
 });

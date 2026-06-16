@@ -21,10 +21,10 @@
     <section class="card">
       <h2>Runtime info</h2>
       <table>
-        <tr><th>Environment</th><td><%= env.nodeEnv %></td></tr>
         <tr><th>Node version</th><td><%= env.nodeVersion %></td></tr>
         <tr><th>Listening on port</th><td><%= env.port %></td></tr>
-        <tr><th>Instance</th><td><%= env.instance %></td></tr>
+        <tr><th>Deployed at</th><td><%= env.deployedAt %></td></tr>
+        <tr><th>Uptime</th><td><%= env.uptime %>s</td></tr>
       </table>
       <p class="hint">
         The port comes from the <code>PORT</code> environment variable that
