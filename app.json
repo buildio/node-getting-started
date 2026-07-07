@@ -1,0 +1,33 @@
+{
+  "name": "node-getting-started",
+  "description": "A barebones Node.js/Express app ready to deploy to Build (build.io).",
+  "keywords": ["node", "express", "getting-started"],
+  "repository": "https://github.com/build/node-getting-started",
+  "success_url": "/",
+  "buildpacks": [
+    { "url": "heroku/nodejs" }
+  ],
+  "env": {
+    "GREETING": {
+      "description": "Greeting shown on the landing page and returned by /api/greeting.",
+      "value": "Hello from Build!",
+      "required": false
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "standard-1x"
+    }
+  },
+  "environments": {
+    "review": {},
+    "test": {
+      "env": {
+        "GREETING": {
+          "value": "Hello from test!"
+        }
+      }
+    }
+  }
+}
