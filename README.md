@@ -4,6 +4,10 @@ A barebones Node.js app using [Express](https://expressjs.com/) and EJS template
 
 Use it as a starting point for your own app, or as a sandbox to learn the Build deployment workflow: buildpacks, Procfiles, config vars, and automatic deploys.
 
+<a href="https://app.build.io/deploy?template=buildio/node-getting-started">
+  <img src="https://app.build.io/deploy-to-build-button.svg" alt="Deploy" width="150px">
+</a>
+
 ## What's inside
 
 ```
